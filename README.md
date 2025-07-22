@@ -2,20 +2,21 @@
 
 ## Project Overview
 
-This is a full-stack AI agent application designed to answer questions related to e-commerce data using a natural language interface. The project is built entirely on free online platforms (Replit for hosting) and leverages a Large Language Model (LLM) to translate user queries into SQL, execute them against a SQLite database, and provide human-readable answers. The frontend provides a chat-like interface for seamless interaction.
+This is a full-stack AI agent application designed to answer questions related to e-commerce data using a natural language interface. The project is built entirely on free online platforms (Replit for hosting) and leverages a Large Language Model (LLM) to translate user queries into SQL, execute them against a SQLite database, and provide human-readable answers. The frontend provides a chat-like interface for seamless interaction, including visual data representations.
 
 ## Key Features
 
-* **Natural Language to SQL:** Converts user questions into executable SQLite queries using a powerful LLM.
+* **Natural Language to SQL:** Converts user questions into executable SQLite queries using a powerful LLM (Groq).
 * **E-commerce Data Analysis:** Queries provided datasets (Product-Level Ad Sales, Total Sales, and Eligibility) stored in a local SQLite database.
 * **FastAPI Backend:** Robust and scalable API for handling user requests and orchestrating AI and database interactions.
 * **Dynamic Frontend:** Simple HTML/CSS/JS interface for intuitive user interaction.
 * **Streamed Responses:** Provides a "typing" effect for AI answers, enhancing user experience.
+* **Data Visualization (Bonus):** Generates and displays charts based on data queries (e.g., Total Sales over Time).
 * **Zero Local Execution:** Entire development, deployment, and execution environment is online.
 
 ## Technologies Used
 
-* **Backend:** Python 3, FastAPI, Uvicorn, Pandas, SQLite3, Groq (for LLM inference)
+* **Backend:** Python 3, FastAPI, Uvicorn, Pandas, SQLite3, Groq (for LLM inference), Matplotlib (for visualization)
 * **Frontend:** HTML5, CSS3, JavaScript (ES6+)
 * **Platform:** Replit (Development & Hosting)
 * **Version Control:** Git, GitHub
@@ -51,6 +52,7 @@ This is a full-stack AI agent application designed to answer questions related t
         pandas==2.2.2
         groq==0.8.0 # Or the latest compatible version
         python-dotenv==1.0.1
+        matplotlib==3.8.4 # Essential for plotting
         ```
 6.  **Set Groq API Key:**
     * Obtain a free API key from [GroqCloud](https://console.groq.com/keys).
@@ -58,12 +60,12 @@ This is a full-stack AI agent application designed to answer questions related t
     * Add a new secret with **Key:** `GROQ_API_KEY` and **Value:** (your Groq API key).
 7.  **Create Frontend Files:**
     * Create `index.html`, `style.css`, and `script.js` in your project root.
-    * Populate them with the respective code provided in the project guide.
+    * Populate them with the respective complete code blocks provided in this guide.
 8.  **Update `main.py`:**
-    * Replace the entire content of your `main.py` with the complete code provided in the project guide (including Groq integration, database setup, static file serving, and streaming API endpoint).
+    * Replace the entire content of your `main.py` with the complete code block provided in this guide.
 9.  **Run the Repl:** Click the green "Run" button at the top of Replit. Replit will automatically install dependencies from `requirements.txt` and start your FastAPI app.
 
-Your application will be accessible via the public URL provided by Replit (visible in the Webview pane).
+    Your application will be accessible via the public URL provided by Replit (visible in the Webview pane).
 
 ## How to Use
 
@@ -71,6 +73,7 @@ Your application will be accessible via the public URL provided by Replit (visib
 2.  Type your questions about the e-commerce data into the input box.
 3.  Click "Send" or press Enter.
 4.  The AI agent will process your query, generate SQL, fetch results, and respond with a human-readable answer, displayed with a live typing effect.
+5.  You can also directly access generated charts via specific endpoints (e.g., `/chart/total_sales_over_time`).
 
 ## Example Questions
 
@@ -82,7 +85,6 @@ Your application will be accessible via the public URL provided by Replit (visib
 * "Show me the ad sales and ad spend for item 3 on June 1, 2025."
 * "Which product had the highest ad sales?"
 * "What was the total ad spend across all products on 2025-06-01?"
+* "Show me a chart of total sales over time." (We will integrate this soon)
 
 ---
-
-*(This README will be automatically displayed on your GitHub repo. Remember to push this new file to GitHub as well!)*
