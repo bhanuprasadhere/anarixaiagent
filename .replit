@@ -6,11 +6,11 @@ entrypoint = "main.py"
 # run = "python -m uvicorn main:app --host 0.0.0.0 --port 8000" # THIS LINE IS CHANGED
 
 run = "uvicorn main:app --host 0.0.0.0 --port 8000"
-modules = ["python-2.7", "python-3.8", "python-3.9", "python-3.10", "python-3.11"]
+modules = ["python-2.7", "python-3.10", "python-3.11", "python-3.8", "python-3.9"]
 
 [nix]
 channel = "stable-23_11"
-packages = ["cairo", "ffmpeg-full", "freetype", "ghostscript", "glibcLocales", "gobject-introspection", "gtk3", "libxcrypt", "pkg-config", "qhull", "tcl", "tk"]
+packages = ["cairo", "ffmpeg-full", "freetype", "ghostscript", "glibcLocales", "gobject-introspection", "gtk3", "libxcrypt", "pkg-config", "qhull", "tcl", "tk", "yakut"]
 
 [languages]
 
