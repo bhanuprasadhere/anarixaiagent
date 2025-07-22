@@ -1,15 +1,23 @@
+# This is a .replit file.
+# It configures the behavior of your Repl.
+# For more details, see https://docs.replit.com/programming-environment/replit-dot-nix
+
 entrypoint = "main.py"
-modules = ["python-3.11"]
+# run = "uvicorn main:app --host 0.0.0.0 --port 8000"
+run = "python -m uvicorn main:app --host 0.0.0.0 --port 8000"modules = ["python-2.7", "python-3.8", "python-3.9", "python-3.10", "python-3.11"]
 
 [nix]
-channel = "stable-24_05"
+channel = "stable-23_11"
+packages = ["glibcLocales", "libxcrypt"]
 
-[unitTest]
-language = "python3"
+[languages]
 
-[gitHubImport]
-requiredFiles = [".replit", "replit.nix"]
+[languages.python]
+runtime = "python310" # Or your preferred Python version, e.g., "python311"
 
-[deployment]
-run = ["python3", "main.py"]
-deploymentTarget = "cloudrun"
+[tools]
+[tools.format]
+command = ["python3", "-m", "black", "."]
+
+[tools.lint]
+command = ["python3", "-m", "flake8", "."]
