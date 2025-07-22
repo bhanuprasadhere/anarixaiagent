@@ -1,8 +1,11 @@
 entrypoint = "main.py"
+run = "uvicorn main:app --host 0.0.0.0 --port 8000" # <-- THIS IS THE CRUCIAL LINE
+
 modules = ["python-3.11"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["cairo", "ffmpeg-full", "freetype", "ghostscript", "glibcLocales", "gobject-introspection", "gtk3", "libxcrypt", "pkg-config", "qhull", "tcl", "tk"]
 
 [unitTest]
 language = "python3"
@@ -11,5 +14,9 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "main.py"]
-deploymentTarget = "cloudrun"
+# This section is for deployment-specific runs, not the main 'Run' button
+run = ["python3", "main.py"] # You can keep this or remove it, but it's not used by the main 'Run' button.
+
+[[ports]]
+localPort = 8000
+externalPort = 80
